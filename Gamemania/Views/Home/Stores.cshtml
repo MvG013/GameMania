@@ -1,0 +1,16 @@
+﻿@using Gamemania.Models;
+@model List<WinkelModel>
+@{
+    ViewBag.Title = "Stores";
+}
+
+<div class="jumbotron">
+
+@foreach (WinkelModel Winkels in Model)
+{
+
+<p>@Winkels.Naam @Winkels.Telefoonnummer @Winkels.Adres.Postcode @Winkels.Adres.Straatnaam @Winkels.Adres.Huisnummer @Winkels.Adres.Toevoeging </p>
+
+}
+
+</div>

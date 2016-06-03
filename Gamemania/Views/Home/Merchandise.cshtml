@@ -1,0 +1,13 @@
+﻿@using Gamemania.Models;
+@model List<ProductModel>
+@{
+    ViewBag.Title = "";
+}
+
+<div class="jumbotron">
+    @foreach (ProductModel Producten in Model)
+    {
+        <a href="@Url.Action("Product","Producten",new { id = Producten.ID})"><img src="@Producten.Plaatje" /></a>
+    }
+
+</div>

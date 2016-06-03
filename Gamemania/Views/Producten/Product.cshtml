@@ -1,0 +1,26 @@
+﻿@using Gamemania.Models;
+@model ProductModel
+@{
+    ViewBag.Title = "Game";
+}
+
+<div class="jumbotron">
+
+    <img src="@Model.Plaatje" />
+    <p>@Model.Prijs</p>
+
+    @if (Session["Gebruikersnaam"] != null)
+    {
+        <a href="@Url.Action("Bestelling","Bestelling",new { gebruikerid = (int)Session["GebruikerID"] , productid = Model.ID , prijs = Model.Prijs})">Bestellen</a>
+    }
+
+    else
+    {
+        <a href="@Url.Action("Login","Account")">Log in om te kunnen bestellen!</a>
+	}
+
+    <h2>@Model.Naam</h2>
+    <p>@Model.Beschrijving</p>
+
+</div>
+
