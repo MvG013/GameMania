@@ -8,7 +8,8 @@ namespace Gamemania.Models
     public class BestellingModel
     {
         public DateTime Orderdatum { get; set; }
-        public decimal Totaalprijs { get; set; }
+        public int Aantal { get; set; }
+        public decimal Prijs { get; set; }
         public bool Eigenadres { get; set; }
 
         public ProductModel Producten = new ProductModel();
@@ -17,16 +18,19 @@ namespace Gamemania.Models
 
         public AdresModel Adres = new AdresModel();
 
-        public BestellingModel(DateTime orderdatum , decimal totaalprijs , List<ProductModel> producten , List<GebruikerModel> gebruikers , List<AdresModel> bezorgadres)
+        public BestellingModel(DateTime orderdatum , decimal prijs , ProductModel producten , GebruikerModel gebruiker , AdresModel bezorgadres , int aantal)
         {
+            Producten = producten;
+            Gebruiker = gebruiker;
+            Adres = bezorgadres;
             Orderdatum = orderdatum;
-            Totaalprijs = totaalprijs;
+            Prijs = prijs;
+            Aantal = aantal;
 
         }
         public BestellingModel ToevoegenBestelling(DateTime Orderdatum, decimal Totaalprijs, List<ProductModel> producten , List<GebruikerModel> Gebruiker , List<AdresModel> Bezorgadres)
         {
-            BestellingModel Bestelling = new BestellingModel(Orderdatum, Totaalprijs, producten ,Gebruiker , Bezorgadres);
-            return Bestelling;
+            return null;
         }
     }
 }

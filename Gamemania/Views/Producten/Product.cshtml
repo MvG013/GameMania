@@ -11,7 +11,7 @@
 
     @if (Session["Gebruikersnaam"] != null)
     {
-        <a href="@Url.Action("Bestelling","Bestelling",new { gebruikerid = (int)Session["GebruikerID"] , productid = Model.ID , prijs = Model.Prijs})">Bestellen</a>
+        <a href="@Url.Action("Bestelling","Bestelling",new { gebruikerid = Session["GebruikerID"] , productid = Model.ID , prijs = Model.Prijs})">Bestellen</a>
     }
 
     else

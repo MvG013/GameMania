@@ -83,13 +83,15 @@ namespace Gamemania.Controllers
                         Session["Wachtwoord"] = gebruiker.Wachtwoord;
 
 
-                    return RedirectToAction("Index", "Home");
-                }
-                    return null;
+                    return RedirectToAction("Manage", "Home");
                 }
                 return null;
+                
+                }
+            return RedirectToAction("Index", "Home");
+
             //}
-                //return null;    
+            //return null;    
         }
 
             // This doesn't count login failures towards account lockout

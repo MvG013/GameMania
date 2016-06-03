@@ -61,9 +61,15 @@ namespace Gamemania.Controllers
 
             return View(winkels);
         }
-        public ActionResult Manage(int GebruikerID)
+        public ActionResult Manage()
         {
+            int GebruikerID = (int)Session["GebruikerID"];
+            DB database = new DB();
+            GebruikerModel gebruiker =  database.GetUserByID(GebruikerID);
+
             return View();
         }
+
+
     }
 }
