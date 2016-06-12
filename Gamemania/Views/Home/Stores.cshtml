@@ -9,8 +9,10 @@
 @foreach (WinkelModel Winkels in Model)
 {
 
-<p>@Winkels.Naam @Winkels.Telefoonnummer @Winkels.Adres.Postcode @Winkels.Adres.Straatnaam @Winkels.Adres.Huisnummer @Winkels.Adres.Toevoeging </p>
-
+<p> Plaats: @Winkels.Naam <br />
+    Adres: @Winkels.Adres.Straatnaam @Winkels.Adres.Huisnummer @Winkels.Adres.Toevoeging <br />
+    Postcode: @Winkels.Adres.Postcode<br />
+    Telefoonnummer: @Winkels.Telefoonnummer<br /> </p>
 }
 
 </div>

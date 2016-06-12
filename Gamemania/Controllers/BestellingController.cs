@@ -13,13 +13,14 @@ namespace Gamemania.Controllers
         public ActionResult Bestelling(int GebruikerID , int ProductID , decimal prijs)
         {
             GebruikerID = (int)Session["GebruikerID"];
-            DB database = new DB();
+            DBUser dbuser = new DBUser();
+            DBBestelling dbbestelling = new DBBestelling();
 
-            GebruikerModel gebruiker = database.GetUserByID(GebruikerID);
+            GebruikerModel gebruiker = dbuser.GetUserByID(GebruikerID);
 
-            database.Bestteling(gebruiker.GebruikerID, gebruiker.Adres.Plaatsnaam, gebruiker.Adres.Straatnaam , gebruiker.Adres.Huisnummer, gebruiker.Adres.Toevoeging, gebruiker.Adres.Postcode, ProductID, prijs);
+            dbbestelling.Bestteling(gebruiker.GebruikerID, gebruiker.Adres.Plaatsnaam, gebruiker.Adres.Straatnaam , gebruiker.Adres.Huisnummer, gebruiker.Adres.Toevoeging, gebruiker.Adres.Postcode, ProductID, prijs);
 
-            BestellingModel bestelling = database.GetBestelling(gebruiker.GebruikerID, ProductID);
+            BestellingModel bestelling = dbbestelling.GetBestelling(gebruiker.GebruikerID, ProductID);
             return View(bestelling);
         }
     }

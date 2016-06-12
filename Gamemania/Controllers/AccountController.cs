@@ -70,13 +70,13 @@ namespace Gamemania.Controllers
         {
             //if (!ModelState.IsValid)
             //{
-                DB database = new DB();
-                string check = database.CheckLogin(model.Gebruikersnaam);
+                DBUser dbuser = new DBUser();
+                string check = dbuser.CheckLogin(model.Gebruikersnaam);
                 if (check != null)
                 {
                         if (model.Password == check)
                         {
-                            GebruikerModel gebruiker = database.GetUser(model.Gebruikersnaam , check);
+                            GebruikerModel gebruiker = dbuser.GetUser(model.Gebruikersnaam , check);
 
                         Session["GebruikerID"] = gebruiker.GebruikerID;
                         Session["Gebruikersnaam"] = gebruiker.Gebruikersnaam;
@@ -170,13 +170,15 @@ namespace Gamemania.Controllers
         {
             if (ModelState.IsValid)
             {
-                DB database = new DB();
-                database.RegUser(model.Gebruikersnaam, model.Password, model.Voornaam, model.Tussenvoegsel, model.Achternaam,
+                DBUser dbuser = new DBUser();
+                DBAdres dbadres = new DBAdres();
+
+                dbuser.RegUser(model.Gebruikersnaam, model.Password, model.Voornaam, model.Tussenvoegsel, model.Achternaam,
                 model.Geboortedatum, model.Email, model.Telefoonnummer, model.Land, model.Postcode, model.Plaatsnaam, model.Straatnaam, model.Huisnummer, model.Toevoeging);
 
-                AdresModel adres = database.GetAdres(database.GetUserAdresID(model.Postcode, model.Straatnaam, model.Huisnummer));
+                AdresModel adres = dbadres.GetAdres(dbadres.GetUserAdresID(model.Postcode, model.Straatnaam, model.Huisnummer));
 
-                GebruikerModel GetUser = database.GetUser(model.Gebruikersnaam, model.Password);
+                GebruikerModel GetUser = dbuser.GetUser(model.Gebruikersnaam, model.Password);
 
                 GebruikerModel user = new GebruikerModel(GetUser.GebruikerID,model.Gebruikersnaam, model.Password, model.Voornaam, model.Tussenvoegsel, model.Achternaam,
                 model.Geboortedatum, model.Email, model.Telefoonnummer , adres);

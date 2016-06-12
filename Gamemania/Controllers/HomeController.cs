@@ -16,56 +16,56 @@ namespace Gamemania.Controllers
 
         public ActionResult Accessoires()
         {
-            DB database = new DB();
-            List<ProductModel> Consoles = database.GetConsoles(2 , 0);
+            DBProduct dbproduct = new DBProduct();
+            List<ProductModel> Consoles = dbproduct.GetConsoles(2 , 0);
 
             return View(Consoles);
         }
 
         public ActionResult Boardgames()
         {
-            DB database = new DB();
-            List<ProductModel> producten = database.AlleProductenZonderConsole(6);
+            DBProduct dbproduct = new DBProduct();
+            List<ProductModel> producten = dbproduct.AlleProductenZonderConsole(6);
 
             return View(producten);
         }
 
         public ActionResult Consoles()
         {
-            DB database = new DB();
-            List<ProductModel> Consoles = database.GetConsoles(2 , 0);
+            DBProduct dbproduct = new DBProduct();
+            List<ProductModel> Consoles = dbproduct.GetConsoles(2 , 0);
 
             return View(Consoles);
         }
 
         public ActionResult Games()
         {
-            DB database = new DB();
-            List<ProductModel> Consoles = database.GetConsoles(2 , 0);
+            DBProduct dbproduct = new DBProduct();
+            List<ProductModel> Consoles = dbproduct.GetConsoles(2 , 0);
 
             return View(Consoles);
         }
 
         public ActionResult Merchandise()
         {
-            DB database = new DB();
-            List<ProductModel> producten = database.AlleProductenZonderConsole(5);
+            DBProduct dbproduct = new DBProduct();
+            List<ProductModel> producten = dbproduct.AlleProductenZonderConsole(5);
 
             return View(producten);
         }
 
         public ActionResult Stores()
         {
-            DB database = new DB();
-            List<WinkelModel> winkels = database.GetStores();
+            DBWinkel dbwinkel = new DBWinkel();
+            List<WinkelModel> winkels = dbwinkel.GetStores();
 
             return View(winkels);
         }
         public ActionResult Manage()
         {
             int GebruikerID = (int)Session["GebruikerID"];
-            DB database = new DB();
-            GebruikerModel gebruiker =  database.GetUserByID(GebruikerID);
+            DBUser dbuser = new DBUser();
+            GebruikerModel gebruiker =  dbuser.GetUserByID(GebruikerID);
 
             return View();
         }

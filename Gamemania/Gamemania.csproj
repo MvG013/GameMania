@@ -213,11 +213,16 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdresModel.cs" />
     <Compile Include="Models\BestellingModel.cs" />
-    <Compile Include="Models\DB.cs" />
+    <Compile Include="Models\DatabaseModels\DBBestelling.cs" />
+    <Compile Include="Models\DatabaseModels\DBUser.cs" />
+    <Compile Include="Models\DatabaseModels\DBAdres.cs" />
+    <Compile Include="Models\DatabaseModels\DBWinkel.cs" />
+    <Compile Include="Models\DatabaseModels\DBProduct.cs" />
     <Compile Include="Models\GebruikerModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LijstModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductControlle.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\WinkelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,7 +314,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Bestellen\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

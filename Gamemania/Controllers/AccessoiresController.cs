@@ -17,16 +17,16 @@ namespace Gamemania.Controllers
 
         public ActionResult Accessoire(int id)
         {
-            DB database = new DB();
-            ProductModel accessoire = database.GetProduct(id);
+            DBProduct dbproduct = new DBProduct();
+            ProductModel accessoire = dbproduct.GetProduct(id);
 
             return View(accessoire);
         }
 
         public ActionResult Accessoires(int categorieid, string consolenaam)
         {
-            DB database = new DB();
-            List<ProductModel> Accessoires = database.AlleProductenMetConsole(categorieid, consolenaam);
+            DBProduct dbproduct = new DBProduct();
+            List<ProductModel> Accessoires = dbproduct.AlleProductenMetConsole(categorieid, consolenaam);
 
             return View(Accessoires);
         }
