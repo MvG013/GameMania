@@ -94,6 +94,7 @@ namespace Gamemania.Models
         public string Achternaam { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Geboortedatum")]
         public System.DateTime Geboortedatum { get; set; }
 
